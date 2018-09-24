@@ -1,6 +1,6 @@
 {
   "name": "ts-transform-node-env-inline",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Inline the NODE_ENV environment variable",
   "scripts": {
     "test": "jest",
