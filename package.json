@@ -2,6 +2,11 @@
   "name": "ts-transform-node-env-inline",
   "version": "1.0.1",
   "description": "Inline the NODE_ENV environment variable",
+  "files": [
+    "lib",
+    "index.d.ts",
+    "index.js"
+  ],
   "scripts": {
     "test": "jest",
     "build": "tsc"
