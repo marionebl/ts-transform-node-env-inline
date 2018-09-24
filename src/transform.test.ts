@@ -22,3 +22,9 @@ test("works with other keys and values", () => {
   Test.compile(["/index.ts"], { NODE_ENV: "development", NODE_DEBUG: "patternplate" }, MemFs.fs);
   expect(String(MemFs.fs.readFileSync("/index.js"))).toContain("console.log(\"patternplate\")");
 });
+
+test("works with insignificant whitespace", () => {
+  MemFs.vol.fromJSON({ "/index.ts": "console.log( process.env.NODE_DEBUG )" });
+  Test.compile(["/index.ts"], { NODE_ENV: "development", NODE_DEBUG: "patternplate" }, MemFs.fs);
+  expect(String(MemFs.fs.readFileSync("/index.js"))).toContain("console.log(\"patternplate\")");
+});

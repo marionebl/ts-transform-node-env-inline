@@ -9,8 +9,8 @@ export const getTransformer = (options: TransformerOptions) => {
     const env = options.env || {};
 
     const visitor: ts.Visitor = (node: ts.Node): ts.VisitResult<ts.Node> => {
-      if (ts.isPropertyAccessExpression(node) && node.expression.getFullText() === "process.env") {
-        const key = node.name.getFullText();
+      if (ts.isPropertyAccessExpression(node) && node.expression.getText() === "process.env") {
+        const key = node.name.getText();
   
         if (env.hasOwnProperty(key)) {
           return ts.createLiteral(options.env[key]);
