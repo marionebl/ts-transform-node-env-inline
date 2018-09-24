@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "plugins": [
+      {
+        "transform": "../lib",
+        "type": "config",
+        "env": { "NODE_ENV": "test" }
+      }
+    ]
+  }
+}

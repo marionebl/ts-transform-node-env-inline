@@ -1,10 +1,8 @@
 # ts-transform-node-env-inline
 
 * :flashlight: Inline environment variables, e.g. `process.env.NODE_ENV`
-* :construction: **WIP** Statically evaluate resulting binary expressions
 
-Inline the `NODE_ENV` environment variable and if it's a part of a binary expression
-(eg. `process.env.NODE_ENV === "development"`) then statically evaluate and replace it.
+Inline environment variables.
 
 ## Example
 
@@ -15,19 +13,59 @@ process.env.NODE_ENV === "development";
 process.env.NODE_ENV === "production";
 ```
 
+```js 
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "plugins": [
+      {
+        "transform": "../lib",
+        "type": "config",
+        "env": { "NODE_ENV": "hello-world" }
+      }
+    ]
+  }
+}
+```
+
 **Out**
 
-:construction: Work in progress
+```ts
+process.env.NODE_ENV === "development";
+process.env.NODE_ENV === "production";
+```
 
 ## Installation
 
 ```sh
-npm install ts-transform-node-env-inline --save-dev
+npm install ts-transform-node-env-inline ttypescript --save-dev
 ```
 
 ## Usage
 
-:construction: Work in progress
+
+```js 
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "plugins": [
+      {
+        "transform": "../lib",
+        "type": "config",
+        "env": { "NODE_ENV": "production" }
+      }
+    ]
+  }
+}
+```
+
+See [TTypeScript](https://github.com/cevek/ttypescript#how-to-use) for docs about integration with other toolchains.
+
+---
+
+See [./example](./example) for a basic setup based on [TTypeScript](https://github.com/cevek/ttypescript)
 
 ## Prior art
 
